@@ -59,7 +59,7 @@ async function getWeatherData(req, res, next) {
         if (error instanceof ValidationError) {
             return res.status(422).render('index.ejs', {
                 data: {
-                    message: 'Write city correctly',
+                    messageError: 'Write city correctly',
                     weather: [],
                 },
                 csrfToken: req.csrfToken(),
@@ -68,7 +68,7 @@ async function getWeatherData(req, res, next) {
         if (error.message === 'Request failed with status code 404') {
             return res.status(404).render('index.ejs', {
                 data: {
-                    message: 'City not found',
+                    messageError: 'City not found',
                     weather: [],
                 },
                 csrfToken: req.csrfToken(),

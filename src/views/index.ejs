@@ -8,7 +8,12 @@
 </head>
 <body>
     <section>
+      <% if(data.message){ %>
         <div class="text"><%= data.message %></div>
+      <% } %>
+      <% if(data.messageError){ %>
+        <div class="text error"><%= data.messageError %></div>
+      <% } %>
         <form method="post" action="/v1/weather/">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <input type="search" class="search" id="city" name="city" placeholder="Enter the name of the town">
